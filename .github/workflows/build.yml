@@ -1,0 +1,38 @@
+name: Build
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Build C++ examples
+        run: |
+          mkdir -p build/cpp
+          g++ -std=c++11 -Wall -Wextra -pedantic cpp/nfa_to_dfa.cpp -o build/cpp/nfa_to_dfa
+          g++ -std=c++11 -Wall -Wextra -pedantic cpp/dfa_minimization.cpp -o build/cpp/dfa_minimization
+          g++ -std=c++11 -Wall -Wextra -pedantic cpp/kleene_regex.cpp -o build/cpp/kleene_regex
+
+      - name: Build Java example
+        run: |
+          mkdir -p build/java
+          javac -encoding UTF-8 -d build/java java/src/VM_odev/NfaToDfa.java
+
+      - name: Run smoke tests
+        run: |
+          ./build/cpp/nfa_to_dfa
+          ./build/cpp/dfa_minimization
+          ./build/cpp/kleene_regex
+          java -cp build/java VM_odev.NfaToDfa
