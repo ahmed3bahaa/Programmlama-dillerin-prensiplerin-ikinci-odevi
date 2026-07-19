@@ -1,211 +1,245 @@
-# Programlama Dillerin Prensipleri - Ikinci Odevi
+﻿<a id="readme-top"></a>
 
-Formal languages and automata theory coursework project implemented with C++ and Java. The repository demonstrates core finite-automata operations: epsilon-NFA to DFA conversion, DFA minimization, and NFA to regular-expression conversion with the Kleene state-elimination method.
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
 
-## Project Overview
+<br />
+<div align="center">
+  <a href="https://github.com/ahmed3bahaa/Programmlama-dillerin-prensiplerin-ikinci-odevi">
+    <img src="docs/images/logo-placeholder.svg" alt="Programlama Dillerin Prensipleri - Ikinci Odevi logo placeholder" width="90" height="90">
+  </a>
 
-This project is designed as a source-first educational repository. Each program uses a small sample automaton and prints the generated states, transitions, minimized machine, or final regular expression so the algorithm can be followed from the terminal.
+  <h3 align="center">Programlama Dillerin Prensipleri - Ikinci Odevi</h3>
 
-The project includes:
+  <p align="center">
+    Formal languages and automata theory project with C++ and Java examples for NFA-to-DFA conversion, DFA minimization, and NFA-to-regex state elimination.
+    <br />
+    <a href="docs/GITHUB_DESCRIPTION.md"><strong>Explore the docs Â»</strong></a>
+    <br />
+    <br />
+    <a href="#usage">View Usage</a>
+    &middot;
+    <a href="https://github.com/ahmed3bahaa/Programmlama-dillerin-prensiplerin-ikinci-odevi/issues/new">Report Bug</a>
+    &middot;
+    <a href="https://github.com/ahmed3bahaa/Programmlama-dillerin-prensiplerin-ikinci-odevi/issues/new">Request Feature</a>
+  </p>
+</div>
 
-- C++ implementation of epsilon-NFA to DFA conversion.
-- Java implementation of epsilon-NFA to DFA conversion.
-- C++ implementation of DFA minimization.
-- C++ implementation of NFA to regular expression conversion.
-- Windows and Linux/macOS build scripts.
-- Optional CMake support for the C++ examples.
-- GitHub Actions validation for fresh-clone builds and smoke tests.
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li><a href="#about-the-project">About The Project</a><ul><li><a href="#built-with">Built With</a></li></ul></li>
+    <li><a href="#getting-started">Getting Started</a><ul><li><a href="#prerequisites">Prerequisites</a></li><li><a href="#installation">Installation</a></li></ul></li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#how-it-works">How It Works</a></li>
+    <li><a href="#project-structure">Project Structure</a></li>
+    <li><a href="#validation">Validation</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
+  </ol>
+</details>
 
-## Algorithms
+## About The Project
 
-### 1. NFA to DFA Conversion
+[![Project overview placeholder][project-screenshot]](#usage)
 
-The NFA examples use `e` as the epsilon transition symbol. The conversion process:
+Formal languages and automata theory project with C++ and Java examples for NFA-to-DFA conversion, DFA minimization, and NFA-to-regex state elimination.
 
-1. Calculates the epsilon closure of the NFA start state.
-2. Treats each set of NFA states as one DFA state.
-3. Follows all matching transitions for every input symbol.
-4. Applies epsilon closure after every move.
-5. Marks every DFA state that contains an original NFA final state as final.
+The repository currently offers:
 
-Source files:
+- C++ epsilon-NFA to DFA conversion
+- Java epsilon-NFA to DFA conversion
+- C++ DFA minimization
+- C++ NFA to regular expression conversion
+- Windows and Linux/macOS build scripts
+- Optional CMake build
+- GitHub Actions build and smoke-test workflow
 
-- `cpp/nfa_to_dfa.cpp`
-- `java/src/VM_odev/NfaToDfa.java`
+This README follows the shared template requested for the repository set and keeps the claims limited to files and documentation present in this project.
 
-### 2. DFA Minimization
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-The minimization example reduces a DFA by:
+### Built With
 
-1. Removing unreachable states.
-2. Splitting reachable states into final and non-final partitions.
-3. Repeatedly refining partitions according to transition behavior.
-4. Building a smaller equivalent DFA from the final partitions.
+- C++
+- Java
+- CMake
+- Bash
+- PowerShell
+- GitHub Actions
 
-Source file:
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-- `cpp/dfa_minimization.cpp`
+## Getting Started
 
-### 3. NFA to Regular Expression
+Follow these steps to clone the repository and run the project locally.
 
-The Kleene/state-elimination example converts an NFA to a regular expression by:
+### Prerequisites
 
-1. Adding a new artificial start state and final state.
-2. Labeling transitions with regular-expression fragments.
-3. Eliminating intermediate states one by one.
-4. Combining paths with union, concatenation, and Kleene star.
-5. Printing the final expression from the new start to the new final state.
+- g++ with C++11 support
+- Java JDK 17 or newer
+- Optional CMake 3.12+
 
-Source file:
+### Installation
 
-- `cpp/kleene_regex.cpp`
+~~~bash
+git clone https://github.com/ahmed3bahaa/Programmlama-dillerin-prensiplerin-ikinci-odevi.git
+cd Programmlama-dillerin-prensiplerin-ikinci-odevi
+bash scripts/build.sh
+~~~
 
-## Sample Automaton
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-```mermaid
-flowchart LR
-    q0((0)) -- e --> q1((1))
-    q0 -- e --> q7((7))
-    q1 -- a --> q2((2))
-    q2 -- e --> q3((3))
-    q3 -- b --> q4((4))
-    q4 -- e --> q1
-    q4 -- e --> q5((5))
-    q5 -- c --> q6((6))
-    q6 -- e --> q7
-    q7 -- d --> q8(((8)))
-```
+## Usage
+
+Useful commands and entry points:
+
+~~~bash
+powershell -ExecutionPolicy Bypass -File .\scripts\build.ps1
+~~~
+
+~~~bash
+bash scripts/build.sh
+~~~
+
+~~~bash
+./build/cpp/nfa_to_dfa
+~~~
+
+~~~bash
+java -cp build/java VM_odev.NfaToDfa
+~~~
+
+### Visual Placeholders
+
+Placeholder images are included under `docs/images/` so you can replace them manually later without changing the README layout.
+
+<p align="center">
+  <img src="docs/images/project-overview-placeholder.svg" alt="Programlama Dillerin Prensipleri - Ikinci Odevi overview placeholder" width="48%">
+  <img src="docs/images/workflow-placeholder.svg" alt="Programlama Dillerin Prensipleri - Ikinci Odevi workflow placeholder" width="48%">
+</p>
+
+Suggested final visuals:
+
+- Project overview screenshot or main terminal output.
+- Workflow, architecture, or data-flow diagram.
+- Example result, dashboard, report, or generated artifact screenshot.
+- Short GIF only when it is small and useful.
+
+Avoid committing large raw videos, private datasets, credentials, runtime logs, or generated secrets. Use sanitized screenshots and diagrams.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## How It Works
+
+`	ext
+Sample automaton -> epsilon closures and transition sets -> DFA states, minimized DFA, or regular expression output
+`
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Project Structure
 
-```text
-.
-|-- cpp/
-|   |-- dfa_minimization.cpp
-|   |-- kleene_regex.cpp
-|   `-- nfa_to_dfa.cpp
-|-- java/
-|   `-- src/
-|       `-- VM_odev/
-|           `-- NfaToDfa.java
-|-- scripts/
-|   |-- build.ps1
-|   `-- build.sh
-|-- docs/
-|   `-- github-description.md
-|-- .github/
-|   `-- workflows/
-|       `-- build.yml
-|-- CMakeLists.txt
-`-- README.md
-```
+- cpp/ - C++ automata examples
+- java/src/VM_odev/ - Java NFA-to-DFA example
+- scripts/ - build helpers
+- CMakeLists.txt - optional C++ build
+- docs/ - GitHub description notes
 
-## Requirements
-
-- `g++` with C++11 support.
-- Java JDK 17 or newer.
-- Optional: CMake 3.12 or newer.
-
-## Quick Start
-
-Clone the repository:
-
-```bash
-git clone https://github.com/ahmed3bahaa/Programmlama-dillerin-prensiplerin-ikinci-odevi.git
-cd Programmlama-dillerin-prensiplerin-ikinci-odevi
-```
-
-### Windows
-
-Build all examples:
-
-```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\build.ps1
-```
-
-Run the C++ examples:
-
-```powershell
-.\build\cpp\nfa_to_dfa.exe
-.\build\cpp\dfa_minimization.exe
-.\build\cpp\kleene_regex.exe
-```
-
-Run the Java example:
-
-```powershell
-java -cp build\java VM_odev.NfaToDfa
-```
-
-### Linux/macOS
-
-Build all examples:
-
-```bash
-bash scripts/build.sh
-```
-
-Run the C++ examples:
-
-```bash
-./build/cpp/nfa_to_dfa
-./build/cpp/dfa_minimization
-./build/cpp/kleene_regex
-```
-
-Run the Java example:
-
-```bash
-java -cp build/java VM_odev.NfaToDfa
-```
-
-### Optional CMake Build
-
-```bash
-cmake -S . -B build/cmake
-cmake --build build/cmake
-```
-
-## Example Output
-
-The programs print:
-
-- Generated DFA state sets.
-- DFA transition tables.
-- Final states after conversion.
-- Minimized DFA states and transitions.
-- A generated regular expression for the sample NFA.
-
-## GitHub Deployment
-
-This is a command-line coursework project, so deployment means publishing a clean, reproducible source repository to GitHub instead of hosting a web application. The deployed repository contains source code, documentation, build scripts, repository metadata, and a GitHub Actions workflow.
-
-Recommended GitHub About description:
-
-```text
-Formal languages automata project with C++ and Java examples for NFA-to-DFA conversion, DFA minimization, and NFA-to-regex state elimination.
-```
-
-Recommended topics:
-
-```text
-formal-languages, automata-theory, nfa, dfa, regular-expression, state-elimination, cpp, java, compiler-design, coursework
-```
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Validation
 
-The repository can be validated locally with:
+Run the most relevant checks for this repository:
 
-```powershell
+~~~bash
+bash scripts/build.sh
+~~~
+
+~~~bash
 powershell -ExecutionPolicy Bypass -File .\scripts\build.ps1
-.\build\cpp\nfa_to_dfa.exe
-.\build\cpp\dfa_minimization.exe
-.\build\cpp\kleene_regex.exe
-java -cp build\java VM_odev.NfaToDfa
-```
+~~~
 
-GitHub Actions runs the same kind of build and smoke-test process on every push and pull request.
+Some validations depend on local tools, services, datasets, API credentials, or a configured lab environment.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Roadmap
+
+- [ ] Replace placeholder images with final screenshots or diagrams.
+- [ ] Keep setup commands synchronized with the current project files.
+- [ ] Add more examples or test fixtures when the project grows.
+- [ ] Add a repository-level license if the project will be reused outside its original context.
+
+See the [open issues](https://github.com/ahmed3bahaa/Programmlama-dillerin-prensiplerin-ikinci-odevi/issues) for proposed features and known issues.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Contributing
+
+Contributions are welcome for documentation, examples, tests, and implementation improvements.
+
+1. Fork the project.
+2. Create your feature branch:
+
+   ~~~bash
+   git checkout -b feature/AmazingFeature
+   ~~~
+
+3. Commit your changes:
+
+   ~~~bash
+   git commit -m "Add some AmazingFeature"
+   ~~~
+
+4. Push to the branch:
+
+   ~~~bash
+   git push origin feature/AmazingFeature
+   ~~~
+
+5. Open a pull request.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### Top Contributors
+
+<a href="https://github.com/ahmed3bahaa/Programmlama-dillerin-prensiplerin-ikinci-odevi/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=ahmed3bahaa/Programmlama-dillerin-prensiplerin-ikinci-odevi" alt="Top contributors for Programlama Dillerin Prensipleri - Ikinci Odevi" />
+</a>
 
 ## License
 
-No license has been specified yet. Add a license before reuse or distribution outside coursework.
+No repository-level license file was verified in this project. Add a license before reuse or distribution outside the intended coursework, lab, or prototype context.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Contact
+
+Project owner: [@ahmed3bahaa](https://github.com/ahmed3bahaa)
+
+Project Link: [https://github.com/ahmed3bahaa/Programmlama-dillerin-prensiplerin-ikinci-odevi](https://github.com/ahmed3bahaa/Programmlama-dillerin-prensiplerin-ikinci-odevi)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Acknowledgments
+
+- README structure adapted from [ahmed3bahaa/readme-template](https://github.com/ahmed3bahaa/readme-template).
+- Project files, reports, fixtures, and documentation included in this repository.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+[contributors-shield]: https://img.shields.io/github/contributors/ahmed3bahaa/Programmlama-dillerin-prensiplerin-ikinci-odevi.svg?style=for-the-badge
+[contributors-url]: https://github.com/ahmed3bahaa/Programmlama-dillerin-prensiplerin-ikinci-odevi/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/ahmed3bahaa/Programmlama-dillerin-prensiplerin-ikinci-odevi.svg?style=for-the-badge
+[forks-url]: https://github.com/ahmed3bahaa/Programmlama-dillerin-prensiplerin-ikinci-odevi/network/members
+[stars-shield]: https://img.shields.io/github/stars/ahmed3bahaa/Programmlama-dillerin-prensiplerin-ikinci-odevi.svg?style=for-the-badge
+[stars-url]: https://github.com/ahmed3bahaa/Programmlama-dillerin-prensiplerin-ikinci-odevi/stargazers
+[issues-shield]: https://img.shields.io/github/issues/ahmed3bahaa/Programmlama-dillerin-prensiplerin-ikinci-odevi.svg?style=for-the-badge
+[issues-url]: https://github.com/ahmed3bahaa/Programmlama-dillerin-prensiplerin-ikinci-odevi/issues
+[project-screenshot]: docs/images/project-overview-placeholder.svg
