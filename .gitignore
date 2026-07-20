@@ -1,14 +1,9 @@
-build/
-*.exe
-*.class
-*.o
-*.obj
-*.dll
-*.so
-*.dylib
+# Build outputs
+bin/*
+lib/*
+!bin/.gitkeep
+!lib/.gitkeep
 
+# Editor and OS noise
 .DS_Store
 Thumbs.db
-
-.idea/
-.vscode/

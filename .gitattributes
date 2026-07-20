@@ -1,7 +1,0 @@
-*.md text eol=lf
-*.cpp text eol=lf
-*.java text eol=lf
-*.yml text eol=lf
-*.sh text eol=lf
-*.ps1 text eol=crlf
-*.svg text eol=lf
