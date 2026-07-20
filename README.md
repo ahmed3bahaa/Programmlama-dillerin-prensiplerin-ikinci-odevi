@@ -4,6 +4,15 @@ Bu proje, `agaclar.txt` dosyasindaki her satiri bir ikili arama agacina (BST) ce
 
 Program her agac icin dugum adresini, toplam degeri ve sonraki dugum adresini ekrana yazdirir. Secili agacin yapisi konsolda gosterilir.
 
+## Ekran Goruntuleri
+
+Asagidaki ekranlar programin baslangic durumunu ve calisma sirasindaki ilerleme ciktilarini gosterir.
+
+<p align="center">
+  <img src="docs/images/initial.png" alt="Baslangic ekrani" width="48%">
+  <img src="docs/images/progress.png" alt="Calisma ilerlemesi" width="48%">
+</p>
+
 ## Klasor Yapisi
 
 - `src/`: Kaynak dosyalar
